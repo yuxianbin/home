@@ -88,7 +88,7 @@ class AIndex extends React.Component {
     }
     
     uploadUserImgRequest(img_obj) { // 上传用户头像
-        console.log(111111, img_obj)
+        console.log('img_obj:', img_obj)
     }
 
     changeCurrentDate(info) {
