@@ -1,5 +1,5 @@
 {
-  "name": "la_luna",
+  "name": "home_management",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -96,6 +96,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "acorn-dynamic-import": "^2.0.2",
     "less": "^2.7.3",
     "less-loader": "^4.0.5"
   }

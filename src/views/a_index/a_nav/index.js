@@ -24,12 +24,12 @@ class ANav extends React.Component {
                         {
                             key: '1-1',
                             name: '概括',
-                            href: '/a/a_incomeSummarize',
+                            href: '/a_incomeSummarize',
                         },
                         {
                             key: '1-2',
                             name: '其它收入',
-                            href: '/a/a_otherIncome',
+                            href: '/a_otherIncome',
                         },
                     ],
                 },
@@ -40,12 +40,12 @@ class ANav extends React.Component {
                         {
                             key: '2-1',
                             name: '概括',
-                            href: '/a/a_consumeSummarize',
+                            href: '/a_consumeSummarize',
                         },
                         {
                             key: '2-2',
                             name: '其它消费',
-                            href: '/a/a_otherConsume',
+                            href: '/a_otherConsume',
                         },
                     ],
                 },
@@ -56,12 +56,12 @@ class ANav extends React.Component {
                         {
                             key: '3-1',
                             name: '概括',
-                            href: '/a/a_earningsEarnings',
+                            href: '/a_earningsEarnings',
                         },
                         {
                             key: '3-2',
                             name: '评价',
-                            href: '/a/a_earningsEvaluate',
+                            href: '/a_earningsEvaluate',
                         },
                     ],
                 },
