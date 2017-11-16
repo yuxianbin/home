@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
     Link,
 } from 'react-router-dom'
@@ -102,7 +103,7 @@ class ANav extends React.Component {
 }
 
 ANav.defaultProps = {
-    theme: '',
+    theme: PropTypes.string,
 }
 
 export default ANav
