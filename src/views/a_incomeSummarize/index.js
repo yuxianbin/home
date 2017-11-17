@@ -1,77 +1,65 @@
 /**
- * Revised by zhusass on 2017/11/16.
+ * Revised by zhusass on 2017/11/17.
  */
 
 import React from 'react'
-import { Calendar } from 'antd';
+import { Breadcrumb,Card } from 'antd'
+
+import base from '../../library/config/base'
+
+import Graph from '../../library/components/Graph/index'
 
 import './index.less'
 
-function getListData(value) {
-    let listData;
-    switch (value.date()) {
-        case 8:
-            listData = [
-                { type: 'warning', content: 'This is warning event.' },
-                { type: 'normal', content: 'This is usual event.' },
-            ]; break;
-        case 10:
-            listData = [
-                { type: 'warning', content: 'This is warning event.' },
-                { type: 'normal', content: 'This is usual event.' },
-                { type: 'error', content: 'This is error event.' },
-            ]; break;
-        case 15:
-            listData = [
-                { type: 'warning', content: 'This is warning event' },
-                { type: 'normal', content: 'This is very long usual event。。....' },
-                { type: 'error', content: 'This is error event 1.' },
-                { type: 'error', content: 'This is error event 2.' },
-                { type: 'error', content: 'This is error event 3.' },
-                { type: 'error', content: 'This is error event 4.' },
-            ]; break;
-        default:
+// Breadcrumbs
+class Breadcrumbs extends React.Component {
+    constructor(props) {
+        super(props)
     }
-    return listData || [];
-}
 
-function dateCellRender(value) {
-    const listData = getListData(value);
-    return (
-        <ul className="events">
-            {
-                listData.map(item => (
-                    <li key={item.content}>
-                        <span className={`event-${item.type}`}>●</span>
-                        {item.content}
-                    </li>
-                ))
-            }
-        </ul>
-    );
-}
-
-function getMonthData(value) {
-    if (value.month() === 8) {
-        return 1394;
-    }
-}
-
-function monthCellRender(value) {
-    const num = getMonthData(value);
-    return num ? (
-        <div className="notes-month">
-            <section>{num}</section>
-            <span>Backlog number</span>
+    render() {
+        return <div className="breadcrumbs-wrap">
+            <Breadcrumb>
+                <Breadcrumb.Item>{base.a_router_name['a_incomeSummarize'].parent}</Breadcrumb.Item>
+                <Breadcrumb.Item>{base.a_router_name['a_incomeSummarize'].name}</Breadcrumb.Item>
+            </Breadcrumb>
         </div>
-    ) : null;
+    }
 }
 
+// detail
+class Detail extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            loading: false,
+        }
+    }
+
+    render() {
+        return <div className="detail-wrap">
+            <Card title="明细" loading={this.state.loading}>
+                <div className="detail-main">
+                    <Graph/>
+                </div>
+            </Card>
+        </div>
+    }
+}
 
 class IncomeSummarize extends React.Component {
     render() {
         return <div className="incomesummarize">
-            <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+            <div className="incomesummarize-breadcrumb">
+                <Breadcrumbs/>
+            </div>
+            <div className="incomesummarize-mian">
+                <div className="incomesummarize-mian-item" >
+                    <Detail/>
+                </div>
+
+            </div>
         </div>
     }
 }

@@ -102,7 +102,7 @@ class ANav extends React.Component {
     </div>}
 }
 
-ANav.defaultProps = {
+ANav.propTypes = {
     theme: PropTypes.string,
 }
 
