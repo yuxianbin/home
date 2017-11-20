@@ -21,8 +21,6 @@ import a_earningsEvaluate from '../a_earningsEvaluate/index' // 月收益->评�
 
 import './index.less'
 
-const { MonthPicker } = DatePicker;
-
 // 用户头像
 class UserInfo extends React.Component {
     constructor(props) {
@@ -78,7 +76,7 @@ class AIndex extends React.Component {
     componentWillMount() {
         let user_url = tools.getCookie('user_url') || 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3505995965,2781827203&fm=27&gp=0.jpg'
         let user_name = tools.getCookie('user_name') || '未命名'
-        let currentTime = tools.getCookie('current_time') || tools.getYearMonth()
+        let currentTime = tools.getCookie('current_time') || tools.getTime()
 
         this.setState({
             user_url: user_url,
@@ -92,7 +90,7 @@ class AIndex extends React.Component {
     }
 
     changeCurrentDate(info) {
-        let current_time = tools.getYearMonth(new Date(info._d).getTime())
+        let current_time = tools.getTime(info._d)
 
         tools.setCookie('current_time', current_time)
     }
@@ -111,7 +109,7 @@ class AIndex extends React.Component {
                         <ANav theme={this.state.theme}/>
                     </div>
                     <div className="main-date">
-                        <MonthPicker defaultValue={moment(this.state.currentTime, 'YYYY/MM')}
+                        <DatePicker defaultValue={moment(this.state.currentTime, 'YYYY/MM/DD')}
                                     onChange={this.changeCurrentDate.bind(this)}
                                     placeholder="Select month"/>
                     </div>
