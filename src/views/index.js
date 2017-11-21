@@ -16,7 +16,7 @@ class NavMenu extends React.Component {
         return <Router>
             <div style={{width: '100%', height: '100%',}}>
                 <Route path="/a" component={AIndex}/>
-                <Route path="/" component={Index}/>
+                {/*<Route path="/" component={Index}/>*/}
             </div>
         </Router>
     }

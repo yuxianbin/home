@@ -35,4 +35,28 @@ tools.getTime = function (time) {
     return year + '/' + month + '/' + day
 }
 
+// listObj set key
+tools.setObjKeys = function (object, key) {
+     let obj = [...object]
+
+     if (key) {
+         return obj.map(item => {
+             item['key'] = item[key]
+             return item
+         })
+     } else {
+         return obj.map((item) => {
+             let str = Math.random() + '' + new Date().getTime()
+             item['key'] = str
+
+             return item
+         })
+     }
+}
+
+tools.getObjectType = function(object) {
+     const getType = window.Object.prototype.toString
+     return getType.call(object).match(/^\[object\s(.*)\]$/)[1]
+}
+
 export default tools
