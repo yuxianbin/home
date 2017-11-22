@@ -13,9 +13,7 @@ import tools from '../../library/tools/index'
 import ANav from './a_nav/index' // 页面路由
 
 import a_incomeSummarize from '../a_incomeSummarize/index' // 月收入->概括
-import a_otherIncome from '../a_otherIncome/index' // 月收入->其它收入
 import a_consumeSummarize from '../a_consumeSummarize/index' // 月消费->概括
-import a_otherConsume from '../a_otherConsume/index' // 月消费->其它消费
 import a_earningsEarnings from '../a_earningsEarnings/index' // 月收益->概括
 import a_earningsEvaluate from '../a_earningsEvaluate/index' // 月收益->评价
 
@@ -117,9 +115,7 @@ class AIndex extends React.Component {
 
                 <div className="aindex-content">
                     <Route exact path={`${this.props.match.url}/a_incomeSummarize`} component={a_incomeSummarize}/>
-                    <Route path={`${this.props.match.url}/a_otherIncome`} component={a_otherIncome}/>
                     <Route path={`${this.props.match.url}/a_consumeSummarize`} component={a_consumeSummarize}/>
-                    <Route path={`${this.props.match.url}/a_otherConsume`} component={a_otherConsume}/>
                     <Route path={`${this.props.match.url}/a_earningsEarnings`} component={a_earningsEarnings}/>
                     <Route path={`${this.props.match.url}/a_earningsEvaluate`} component={a_earningsEvaluate}/>
                 </div>

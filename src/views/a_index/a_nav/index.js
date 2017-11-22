@@ -24,13 +24,8 @@ class ANav extends React.Component {
                     children: [
                         {
                             key: '1-1',
-                            name: '概括',
+                            name: '月收入设置',
                             href: '/a/a_incomeSummarize',
-                        },
-                        {
-                            key: '1-2',
-                            name: '其它收入',
-                            href: '/a/a_otherIncome',
                         },
                     ],
                 },
@@ -40,13 +35,8 @@ class ANav extends React.Component {
                     children: [
                         {
                             key: '2-1',
-                            name: '概括',
+                            name: '月消费设置',
                             href: '/a/a_consumeSummarize',
-                        },
-                        {
-                            key: '2-2',
-                            name: '其它消费',
-                            href: '/a/a_otherConsume',
                         },
                     ],
                 },
@@ -56,7 +46,7 @@ class ANav extends React.Component {
                     children: [
                         {
                             key: '3-1',
-                            name: '概括',
+                            name: '概括设置',
                             href: '/a/a_earningsEarnings',
                         },
                         {

@@ -28,28 +28,31 @@ class FormsContent extends React.Component {
                     let obj_type = tools.getObjectType(item.required)
                     let isUpdate = this.props.action_type === 'update'
 
+                    if (item.noAddShow && !isUpdate) { // 添加操作不渲染
+                        return null
+                    }
+
                     return <FormItem
                         key={index}
                         label={item.name}
                         hasFeedback
                     >
                     {function() {
-                            if (obj_type === 'Array') {
-                                return getFieldDecorator(key, {
-                                    rules:  item.required,
-                                    initialValue: that.props.form_data[key],
-                                })(<Input disabled={item.disabled && isUpdate}/>)
+                            let required = [] // 验证规则对象
+
+                            if (obj_type === 'Array') { // array类型
+                                required = item.required
                             }
-                            if (item.required && obj_type === 'Boolean') {
-                                return getFieldDecorator(key, {
-                                    rules: [{
-                                        required: true, message: `请输入${item.name}`,
-                                    }],
-                                    initialValue: that.props.form_data[key],
-                                })(<Input disabled={item.disabled && isUpdate}/>)
+                            if (item.required && obj_type === 'Boolean') { // true
+                                required = [{
+                                    required: true, message: `请输入${item.name}`,
+                                }]
                             }
-                            return <Input disabled={item.disabled && isUpdate}
-                                          defaultValue={that.props.form_data[key]}/>
+
+                            return getFieldDecorator(key, {
+                                        rules:  required,
+                                        initialValue: that.props.form_data[key],
+                                    })(<Input disabled={item.disabled && isUpdate}/>)
                         }()
                     }
                     </FormItem>
@@ -73,12 +76,20 @@ class Forms extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        console.log(111, this.refs)
-    }
+    handleOk() {
+        let myForm = this.refs['myform']
 
-    componentWillReceiveProps(nextProps) {
-        console.log(11111, nextProps.form_data)
+        myForm.validateFields((errors, values) => { // errors: 验证没通过；values form的值
+            let form_data = this.props.form_data
+
+            if (errors) {
+                return null
+            }
+
+            Object.assign(form_data, values)
+            this.props.handleOk(form_data)
+
+        })
     }
 
     handleCancel() {
@@ -89,15 +100,14 @@ class Forms extends React.Component {
         return <Modal
             title={this.props.title}
             visible={this.props.visible}
-            onOk={this.props.handleOk}
+            onOk={this.handleOk.bind(this)}
             onCancel={this.handleCancel.bind(this)}
             >
-            <CustomizedForm ref="myform"
-                            action_type={this.props.action_type}
-                            form_data={this.props.form_data}
-                            form_label={this.props.form_label}
-                            handleOk={this.props.handleOk.bind(this)}
-               />
+            {this.props.visible ? <CustomizedForm ref="myform"
+                                                  action_type={this.props.action_type}
+                                                  form_data={this.props.form_data}
+                                                  form_label={this.props.form_label}
+            />: null}
         </Modal>
     }
 }
@@ -105,7 +115,8 @@ class Forms extends React.Component {
 /***
  * form_label     表单配置参数
  *      name         名字
- *      required      true代表需要验证启用默认验证；ArrayObject 自定义验证方法
+ *      required     true代表需要验证启用默认验证；ArrayObject 自定义验证方法
+ *      noAddShow    添加操作下不渲染
  *
  * form_data      表单数据/object
  * action_type    当前操作类型，add/添加   update编辑
