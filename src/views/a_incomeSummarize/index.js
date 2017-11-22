@@ -42,28 +42,28 @@ class Detail extends React.Component {
             table_data: [],
             modelVisible: false, // model
             action_type: 'add', // add 添加; update 更新; delete 删除
-            modalTitle: '新增项目', // modal title
+            modalTitle: '新增收入', // modal title
             selectAction: 'income_id', // 默认选择
             selectLists: [ // 条件选择框
                 {
-                    label: '项目ID',
+                    label: '收入ID',
                     val: 'income_id',
                 },
                 {
-                    label: '项目名称',
+                    label: '收入名称',
                     val: 'income_name',
                 },
             ],
             serachVal: '', // 搜索关键词
             table_label: {
                 income_id: {
-                    name: '项目ID',
+                    name: '收入ID',
                     noAddShow: true,
                     disabled: true,
                     required: true,
                 },
                 income_name: {
-                    name: '项目名称',
+                    name: '收入名称',
                     required: true,
                 },
                 income_price: {
@@ -71,7 +71,7 @@ class Detail extends React.Component {
                     required: true,
                 },
                 income_explain: {
-                    name: '项目详情',
+                    name: '收入详情',
                 },
             },
             up_data: {},
@@ -97,34 +97,34 @@ class Detail extends React.Component {
         }, 1000)
     }
 
-    addEarningsHandle() { // 增加收入项目
+    addEarningsHandle() { // 增加收入收入
         this.setState({
             modelVisible: true,
             action_type: 'add',
             up_data: {},
-            modalTitle: '新增项目',
+            modalTitle: '新增收入',
         })
         this.emitEarningsRequest()
     }
 
-    upEarningHandle(item) { // 编辑收入项目
+    upEarningHandle(item) { // 编辑收入收入
         this.setState({
             modelVisible: true,
             up_data: item,
             action_type: 'update',
-            modalTitle: '编辑项目',
+            modalTitle: '编辑收入',
         })
         this.emitEarningsRequest()
     }
 
-    deleteEarningHandle(item) { // 删除收入项目
+    deleteEarningHandle(item) { // 删除收入收入
         this.setState({
             action_type: 'delete'
         })
         this.emitEarningsRequest()
     }
 
-    upDateEarning(parameters) { // 更新项目
+    upDateEarning(parameters) { // 更新收入
         console.log('操作对象:', parameters)
         if (this.state.action_type === 'update') {
             this.state.table_data.map((item) => {
@@ -232,7 +232,7 @@ class Detail extends React.Component {
 
     render() {
         return <div className="detail-wrap">
-            <Card title="明细"  extra={<Button onClick={this.addEarningsHandle.bind(this)} type="primary" >创建项目</Button>}>
+            <Card title="明细"  extra={<Button onClick={this.addEarningsHandle.bind(this)} type="primary" >创建收入</Button>}>
                 <div className="detail-serach">
                     <div className="detail-serach-title">
                         筛选：
