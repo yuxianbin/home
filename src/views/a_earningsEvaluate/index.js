@@ -23,8 +23,8 @@ class Breadcrumbs extends React.Component {
     render() {
         return <div className="breadcrumbs-wrap">
             <Breadcrumb>
-                <Breadcrumb.Item>{base.a_router_name['a_incomeSummarize'].parent}</Breadcrumb.Item>
-                <Breadcrumb.Item>{base.a_router_name['a_incomeSummarize'].name}</Breadcrumb.Item>
+                <Breadcrumb.Item>{base.a_router_name['a_earningsEvaluate'].parent}</Breadcrumb.Item>
+                <Breadcrumb.Item>{base.a_router_name['a_earningsEvaluate'].name}</Breadcrumb.Item>
             </Breadcrumb>
         </div>
     }
