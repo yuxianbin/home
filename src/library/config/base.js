@@ -11,15 +11,15 @@ base.a_router_name = {
        name: '月光',
     },
     a_incomeSummarize: {
-        name: '月收入设置',
-        parent: '月收入',
+        name: '收入设置',
+        parent: '收入',
     },
     a_consumeSummarize: {
-        name: '月消费设置',
-        parent: '月消费',
+        name: '消费设置',
+        parent: '消费',
     },
-    a_earningsEarnings: {
-        name: '概括',
+    a_incomeDetails: {
+        name: '详情',
         parent: '月收益',
     },
     a_earningsEvaluate: {

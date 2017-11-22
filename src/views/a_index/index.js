@@ -12,9 +12,9 @@ import tools from '../../library/tools/index'
 
 import ANav from './a_nav/index' // 页面路由
 
-import a_incomeSummarize from '../a_incomeSummarize/index' // 月收入->概括
-import a_consumeSummarize from '../a_consumeSummarize/index' // 月消费->概括
-import a_earningsEarnings from '../a_earningsEarnings/index' // 月收益->概括
+import a_incomeSummarize from '../a_incomeSummarize/index' // 月收入->月收入设置
+import a_consumeSummarize from '../a_consumeSummarize/index' // 月消费->月消费设置
+import a_IncomeDetails from '../a_incomeDetails/index' // 月收益->概括
 import a_earningsEvaluate from '../a_earningsEvaluate/index' // 月收益->评价
 
 import './index.less'
@@ -116,7 +116,7 @@ class AIndex extends React.Component {
                 <div className="aindex-content">
                     <Route exact path={`${this.props.match.url}/a_incomeSummarize`} component={a_incomeSummarize}/>
                     <Route path={`${this.props.match.url}/a_consumeSummarize`} component={a_consumeSummarize}/>
-                    <Route path={`${this.props.match.url}/a_earningsEarnings`} component={a_earningsEarnings}/>
+                    <Route path={`${this.props.match.url}/a_incomeDetails`} component={a_IncomeDetails}/>
                     <Route path={`${this.props.match.url}/a_earningsEvaluate`} component={a_earningsEvaluate}/>
                 </div>
             </div>
