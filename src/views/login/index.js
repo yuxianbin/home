@@ -3,7 +3,6 @@
  */
 
 import React from 'react'
-
 import { Form, Icon, Input, Button, Checkbox, } from 'antd'
 
 import './index.less'
@@ -26,6 +25,7 @@ class LoginForm extends React.Component{
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('values:', values)
+                this.props.history.push('/a', { some: 'state' })
             }
         })
     }
@@ -82,7 +82,7 @@ class Login extends React.Component {
                     <Logo/>
                 </div>
                 <div className="main-form">
-                    <WrappedNormalLoginForm/>
+                    <WrappedNormalLoginForm history={this.props.history}/>
                 </div>
             </div>
         </div>
