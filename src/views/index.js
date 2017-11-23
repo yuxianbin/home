@@ -19,7 +19,8 @@ class App extends React.Component {
       render () {
           return <div className="app-wrap" style={{width: '100%', height: '100%',}}>
               <Route path="/a" component={AIndex}/>
-              <Route path="/login"  component={Login}/>
+              <Route path="/" exact component={Login}/>
+              <Route path="/login" component={Login}/>
           </div>
       }
 }

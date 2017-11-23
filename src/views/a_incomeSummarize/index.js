@@ -97,7 +97,7 @@ class Detail extends React.Component {
         }, 1000)
     }
 
-    addEarningsHandle() { // 增加收入收入
+    addEarningsHandle() { // 增加收入
         this.setState({
             modelVisible: true,
             action_type: 'add',
@@ -107,7 +107,7 @@ class Detail extends React.Component {
         this.emitEarningsRequest()
     }
 
-    upEarningHandle(item) { // 编辑收入收入
+    upEarningHandle(item) { // 编辑收入
         this.setState({
             modelVisible: true,
             up_data: item,
@@ -117,7 +117,7 @@ class Detail extends React.Component {
         this.emitEarningsRequest()
     }
 
-    deleteEarningHandle(item) { // 删除收入收入
+    deleteEarningHandle(item) { // 删除收入
         this.setState({
             action_type: 'delete'
         })

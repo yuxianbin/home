@@ -10,7 +10,7 @@ import './index.less'
 
 const SubMenu = Menu.SubMenu;
 
-class ANav extends React.Component {
+class ARouter extends React.Component {
 
     constructor(props) {
         super(props)
@@ -67,7 +67,7 @@ class ANav extends React.Component {
     }
 
     render() {
-        return <div className="anav">
+        return <div className="arouter-wrap">
             <Menu
                 theme={this.props.theme}
                 onClick={this.changeNavHandle.bind(this)}
@@ -92,8 +92,8 @@ class ANav extends React.Component {
     </div>}
 }
 
-ANav.propTypes = {
+ARouter.propTypes = {
     theme: PropTypes.string,
 }
 
-export default ANav
+export default ARouter
