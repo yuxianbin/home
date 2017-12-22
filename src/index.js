@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {LocaleProvider} from 'antd'
+import 'antd/dist/antd.less'
 
 import Index from './views/index'
 
